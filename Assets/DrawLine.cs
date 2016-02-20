@@ -22,7 +22,7 @@ public class DrawLine : MonoBehaviour
             {
                 GameObject novo = new GameObject();
                 LineRenderer lineRenderer = novo.AddComponent<LineRenderer>();
-                lineRenderer.SetWidth(0.1f, 0.1f);
+                lineRenderer.SetWidth(0.7f, 0.7f);
                 countList.Add(0);
                 lineList.Add(novo);
             }
@@ -43,7 +43,7 @@ public class DrawLine : MonoBehaviour
                 {
                 GameObject novo = new GameObject();
                 LineRenderer lineRenderer = novo.AddComponent<LineRenderer>();
-                    lineRenderer.SetWidth(0.1f, 0.1f);
+                    lineRenderer.SetWidth(0.7f, 0.7f);
                     countList.Add(0);
                 lineList.Add(novo);
                 }
