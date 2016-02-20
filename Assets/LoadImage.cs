@@ -11,7 +11,7 @@ public class LoadImage : MonoBehaviour {
         image = new GameObject();
         image.AddComponent<SpriteRenderer>();
         //image.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Assets/Resources/cavalos.png");
-        image.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("cavalos", typeof(Sprite));
+        image.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("gato", typeof(Sprite));
         //Texture2D texture = LoadPNG("cavalos.png");
         //image.AddComponent<RenderTexture>();
         //image.GetComponent<RenderTexture>().material.mainTexture = texture;
