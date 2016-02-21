@@ -4,6 +4,7 @@ using System;
 
 public class CameraMovement : MonoBehaviour {
     public Camera cam;
+    public DrawLine linhas;
     public int x;
     public int y;
     private int j;
@@ -11,20 +12,26 @@ public class CameraMovement : MonoBehaviour {
     // Use this for initialization
     private void Start()
     {
-        x = Screen.width;
-        y = Screen.height;
-        print(x + " " + y);
-        Camera.main.orthographicSize = x / 16;
+        x = 800;
+        y = 480;
+        linhas = this.GetComponent<DrawLine>();
+
+        //Camera.main.orthographicSize = x / 16;
         //transform.position = new Vector3((-5 * x / 8)+(i*x/8), (5 * y / 8)-(j*y/8), -10);
         // Test invoke the method "TestPrintTime" 5 times, once per second
-        StartCoroutine(InvokeMethod(MoveCamera, 1, 64));
+        StartCoroutine(InvokeMethod(MoveCamera, 2, 64));
     }
 
 
     private void MoveCamera()
     {
-        int a = (-5 * x / 8) + (i * x / 8) + (2*x/8);
-        int b = (5 * y / 8) - (j * y / 8) - (2*y/8);
+        GameObject novo = new GameObject();
+        novo.AddComponent<LineRenderer>().SetWidth(5, 5);
+        linhas.countList.Add(0);
+        linhas.lineList.Add(novo);
+
+        int a = -350 + (i * 100);
+        int b = 210 - (j*60);
         print("A mover camera para: " + a + " " + b);
         transform.position = new Vector3(a, b, -10);
     }
@@ -43,6 +50,10 @@ public class CameraMovement : MonoBehaviour {
                 yield return new WaitForSeconds(interval);
             }
         }
+        GameObject.Find("ObjectiveImage").GetComponent<Renderer>().enabled = false;
+
+        transform.position = new Vector3(0, 0, -10);
+        Camera.main.orthographicSize = 240;
 
     }
 

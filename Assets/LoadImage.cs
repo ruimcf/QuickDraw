@@ -4,40 +4,22 @@ using System.IO;
 
 public class LoadImage : MonoBehaviour {
     public GameObject image;
+    public GameObject background;
+    public string path = "bulbasaur";
 
 
 	// Use this for initialization
 	void Start () {
+
+
         image = new GameObject();
+        image.name = "ObjectiveImage";
+        image.transform.position = new Vector3(0, 0, 0);
         image.AddComponent<SpriteRenderer>();
-        //image.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Assets/Resources/cavalos.png");
-        image.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("gato", typeof(Sprite));
-        //Texture2D texture = LoadPNG("cavalos.png");
-        //image.AddComponent<RenderTexture>();
-        //image.GetComponent<RenderTexture>().material.mainTexture = texture;
+        image.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load(path, typeof(Sprite));
+
 
 
 
     }
-
-    public static Texture2D LoadPNG(string filePath)
-    {
-
-        Texture2D tex = null;
-        byte[] fileData;
-
-        if (File.Exists(filePath))
-        {
-            print("Ficheiro existe");
-            fileData = File.ReadAllBytes(filePath);
-            tex = new Texture2D(2, 2);
-            tex.LoadImage(fileData); //..this will auto-resize the texture dimensions.
-        }
-        return tex;
-    }
-
-    // Update is called once per frame
-    void Update () {
-	
-	}
 }

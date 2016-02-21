@@ -21,8 +21,7 @@ public class DrawLine : MonoBehaviour
             if (lineList.Count == 0)
             {
                 GameObject novo = new GameObject();
-                LineRenderer lineRenderer = novo.AddComponent<LineRenderer>();
-                lineRenderer.SetWidth(0.7f, 0.7f);
+                novo.AddComponent<LineRenderer>().SetWidth(5, 5);
                 countList.Add(0);
                 lineList.Add(novo);
             }
@@ -39,13 +38,11 @@ public class DrawLine : MonoBehaviour
         else {
             if(countList.Count > 0)
             {
-                if(countList[countList.Count -1] > 0)
-                {
-                GameObject novo = new GameObject();
-                LineRenderer lineRenderer = novo.AddComponent<LineRenderer>();
-                    lineRenderer.SetWidth(0.7f, 0.7f);
+                if(countList[countList.Count -1] > 0){
+                    GameObject novo = new GameObject();
+                    novo.AddComponent<LineRenderer>().SetWidth(5, 5);
                     countList.Add(0);
-                lineList.Add(novo);
+                    lineList.Add(novo);
                 }
             }
         }
